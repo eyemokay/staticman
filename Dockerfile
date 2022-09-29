@@ -15,4 +15,4 @@ RUN ["chmod", "+x", "/app/entrypoint.sh"]
 
 EXPOSE 3000
 #CMD [ "npm", "start" ]
-ENTRYPOINT [ "/bin/bash" "-c" "/app/entrypoint.sh" ]
+ENTRYPOINT [ "/bin/bash", "-c", "/app/entrypoint.sh" ]
