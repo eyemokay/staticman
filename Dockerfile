@@ -1,6 +1,7 @@
 FROM ghcr.io/linuxserver/baseimage-alpine:3.16
 
-RUN apk update && apk add --update nodejs nodejs-npm
+RUN apk update && \
+    apk add --update nodejs npm
 
 # Create app directory
 RUN mkdir -p /app
