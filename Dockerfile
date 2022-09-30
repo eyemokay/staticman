@@ -1,4 +1,6 @@
-FROM node:8.11.3
+FROM ghcr.io/linuxserver/baseimage-alpine:3.16
+
+RUN apk update && apk add --update nodejs nodejs-npm
 
 # Create app directory
 RUN mkdir -p /app
@@ -8,11 +10,10 @@ WORKDIR /app
 COPY package.json /app/
 RUN npm install
 
+
 # Bundle app source
 COPY . /app
-RUN ["chmod", "+x", "/app/entrypoint.sh"]
-
 
 EXPOSE 3000
-#CMD [ "npm", "start" ]
-ENTRYPOINT [ "/bin/bash", "-c", "/app/entrypoint.sh" ]
+
+ENTRYPOINT [ "/usr/local/bin/npm", "start" ]
